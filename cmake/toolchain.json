@@ -1,0 +1,207 @@
+{
+  "$schema": "./toolchain-schema.json",
+  "ARM": [
+    {
+      "libc": "auto",
+      "GNU": {
+        "linux": {
+          "aarch64": {
+            "url": "https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-aarch64-arm-none-eabi.tar.xz",
+            "hash": {
+              "type": "SHA256",
+              "value": "87330bab085dd8749d4ed0ad633674b9dc48b237b61069e3b481abd364d0a684"
+            }
+          },
+          "x86_64": {
+            "url": "https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi.tar.xz",
+            "hash": {
+              "type": "SHA256",
+              "value": "62a63b981fe391a9cbad7ef51b17e49aeaa3e7b0d029b36ca1e9c3b2a9b78823"
+            }
+          }
+        },
+        "macos": {
+          "aarch64": {
+            "url": "https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi.tar.xz",
+            "hash": {
+              "type": "SHA256",
+              "value": "c7c78ffab9bebfce91d99d3c24da6bf4b81c01e16cf551eb2ff9f25b9e0a3818"
+            }
+          },
+          "x86_64": {
+            "url": "https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-darwin-x86_64-arm-none-eabi.tar.xz",
+            "hash": {
+              "type": "SHA256",
+              "value": "2d9e717dd4f7751d18936ae1365d25916534105ebcb7583039eff1092b824505"
+            }
+          }
+        },
+        "windows": {
+          "x86": {
+            "url": "https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "6facb152ce431ba9a4517e939ea46f057380f8f1e56b62e8712b3f3b87d994e1"
+            }
+          },
+          "x86_64": {
+            "url": "https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "f074615953f76036e9a51b87f6577fdb4ed8e77d3322a6f68214e92e7859888f"
+            }
+          }
+        }
+      }
+    },
+    {
+      "libc": "picolibc",
+      "LLVM": {
+        "linux": {
+          "aarch64": {
+            "url": "https://github.com/ARM-software/LLVM-embedded-toolchain-for-Arm/releases/download/release-18.1.3/LLVM-ET-Arm-18.1.3-Linux-AArch64.tar.xz",
+            "hash": {
+              "type": "SHA256",
+              "value": "47cd08804e22cdd260be43a00b632f075c3e1ad5a2636537c5589713ab038505"
+            }
+          },
+          "x86_64": {
+            "url": "https://github.com/ARM-software/LLVM-embedded-toolchain-for-Arm/releases/download/release-18.1.3/LLVM-ET-Arm-18.1.3-Linux-x86_64.tar.xz",
+            "hash": {
+              "type": "SHA256",
+              "value": "7afae248ac33f7daee95005d1b0320774d8a5495e7acfb9bdc9475d3ad400ac9"
+            }
+          }
+        },
+        "windows": {
+          "x86_64": {
+            "url": "https://github.com/ARM-software/LLVM-embedded-toolchain-for-Arm/releases/download/release-18.1.3/LLVM-ET-Arm-18.1.3-Windows-x86_64.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "3013dcf1dba425b644e64cb4311b9b7f6ff26df01ba1fcd943105d6bb2a6e68b"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "RISC-V": [
+    {
+      "libc": "auto",
+      "GNU (CORE-V)": {
+        "linux": {
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/corev-gcc-ubuntu2204/49/artifact/corev-openhw-gcc-ubuntu2204-20240609.tar.gz",
+            "hash": {
+              "type": "SHA256",
+              "value": "380fd3b9eedeeb29b05e7776ef6d3f645b65ae6b5ccdb755e7ed060603e63d70"
+            }
+          }
+        },
+        "macos": {
+          "aarch64": {
+            "url": "https://buildbot.embecosm.com/job/corev-gcc-macos-arm64/10/artifact/corev-openhw-gcc-macos-20240609.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "ae277c161849ad17bc751fbd2d40756e4b47dc75643d24b6306edcde904ab986"
+            }
+          },
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/corev-gcc-macos/50/artifact/corev-openhw-gcc-macos-20240609.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "52d43fce0b38ee1d7d752489d675e690c173978f12d9eda9b5d356a54ebd9cec"
+            }
+          }
+        },
+        "windows": {
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/corev-gcc-win64/52/artifact/corev-openhw-gcc-win64-20240609.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "87a6a7b77c4b06a47c897571e65896713709316ea7dbf080a9cb8480c2897989"
+            }
+          }
+        }
+      }
+    },
+    {
+      "libc": "auto",
+      "GNU": {
+        "linux": {
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-gcc-ubuntu2204-release/10/artifact/riscv32-embecosm-ubuntu2204-gcc13.2.0.tar.gz",
+            "hash": {
+              "type": "SHA256",
+              "value": "63feda7d4c6f1cd396367f9555da90bc57c9938235b531763fb6424f097dd28d"
+            }
+          }
+        },
+        "macos": {
+          "aarch64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-gcc-macos-arm64-release/8/artifact/riscv32-embecosm-macos-gcc13.2.0.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "3177239deab7c8514931e377d37faf95b14c18cd6f2ac7847088a797a3c625df"
+            }
+          },
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-gcc-macos-release/19/artifact/riscv32-embecosm-macos-gcc13.2.0.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "99e49bb874d5ffac22defb594e58a62d34558c480a3d19322dfb8953f1afc1ac"
+            }
+          }
+        },
+        "windows": {
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-gcc-win64-release/24/artifact/riscv32-embecosm-win64-gcc13.2.0.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "2fa88079c8504693668f70a6765126d07f501f0ec9b59440e1cd5920a77cc0d3"
+            }
+          }
+        }
+      }
+    },
+    {
+      "libc": "auto",
+      "LLVM": {
+        "linux": {
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-clang-ubuntu2204-release/34/artifact/riscv32-embecosm-ubuntu2204-clang18.1.5.tar.gz",
+            "hash": {
+              "type": "SHA256",
+              "value": "1d129c9f2ec017abd89570bab767b0abfe73ab3685a0644596a4b5d96a896bb4"
+            }
+          }
+        },
+        "macos": {
+          "aarch64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-clang-macos-arm64-release/36/artifact/riscv32-embecosm-macos-clang18.1.5.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "0745e036644b67911546dc095088c653c74af7032b2f74c7410715fccdc88b70"
+            }
+          },
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-clang-macos-release/39/artifact/riscv32-embecosm-macos-clang18.1.5.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "685d7cd32eadf5fdd16a78bd1904b47cbc7b1acd0696f5f226df5d290aed4722"
+            }
+          }
+        },
+        "windows": {
+          "x86_64": {
+            "url": "https://buildbot.embecosm.com/job/riscv32-clang-win64-release/47/artifact/riscv32-embecosm-win64-clang18.1.5.zip",
+            "hash": {
+              "type": "SHA256",
+              "value": "8e2008a03c7318eee853c9f53213ec50b49bd56abe67e13594e531b7e49d03d5"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
