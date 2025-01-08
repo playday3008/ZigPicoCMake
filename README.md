@@ -1,5 +1,7 @@
 # ZigPicoCMake
 
+[![Build Status](https://github.com/playday3008/ZigPicoCMake/actions/workflows/zig-build.yml/badge.svg)](https://github.com/playday3008/ZigPicoCMake/actions)
+
 This repository provides a Zig-based build system for the Raspberry Pi Pico SDK, leveraging the CMake integration with Zig. It is designed to be compatible with both ARM and RISC-V architectures.
 
 ## Build
@@ -38,6 +40,8 @@ To build the project, follow these steps:
 - `zig build clean` - Clean the build directory
 
 ## Quirks
+
+Check builds status, so you can know what board builds and what doesn't.
 
 - Building of code which depends on functions that uses inline volatile assembly isn't working because zig can't currently translate it, tracking issue: [ziglang/zig#18537](https://github.com/ziglang/zig/issues/18537)
 - Hazard3 isn't completely supported, currently using SiFive E21 as a workaround.
