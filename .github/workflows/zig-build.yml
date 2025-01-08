@@ -28,11 +28,18 @@ jobs:
           version: ${{ matrix.zig }}
 
       - name: Cache Toolchains
-        id: cache-primes
+        id: cache-toolchains
         uses: actions/cache@v4
         with:
           path: ./build/${{ matrix.board }}/${{ matrix.optimize }}/toolchain
           key: ${{ matrix.board }}-${{ matrix.optimize }}-toolchain
+
+      - name: Cache Dependencies
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: ./build/${{ matrix.board }}/${{ matrix.optimize }}/_deps
+          key: ${{ matrix.board }}-${{ matrix.optimize }}-deps
 
       - name: Build
         run: zig build -Dboard=${{ matrix.board }} -Doptimize=${{ matrix.optimize }} -Dbuild_dir=./build/${{ matrix.board }}/${{ matrix.optimize }}
@@ -41,4 +48,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-${{ matrix.board }}-${{ matrix.optimize }}
-          path: "./build/${{ matrix.board }}/${{ matrix.optimize }}\n!./build/${{ matrix.board }}/${{ matrix.optimize }}/toolchain"
+          path: "./build/${{ matrix.board }}/${{ matrix.optimize }}\n!./build/${{ matrix.board }}/${{ matrix.optimize }}/_deps\n!./build/${{ matrix.board }}/${{ matrix.optimize }}/toolchain"
