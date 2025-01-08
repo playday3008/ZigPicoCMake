@@ -44,6 +44,7 @@ To build the project, follow these steps:
 Check builds status, so you can know what board builds and what doesn't.
 
 - Building of code which depends on functions that uses inline volatile assembly isn't working because zig can't currently translate it, tracking issue: [ziglang/zig#18537](https://github.com/ziglang/zig/issues/18537)
+- Same situation with C assertions, they are depend on `__FILE__` macro, which isn't supported by Zig.
 - Hazard3 isn't completely supported, currently using SiFive E21 as a workaround.
 - ZLS seems to can't figure out `@cImport`s (sometimes), so, use your [Sixth sense](https://en.wikipedia.org/wiki/Sixth_sense) or [Pico SDK Documentation](https://www.raspberrypi.com/documentation/pico-sdk/) to find the right headers with right functions.
 - Clean reconfiguration is not supported, you need to manually remove `build` directory and re-run `zig build` with the desired options.

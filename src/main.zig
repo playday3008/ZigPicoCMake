@@ -20,6 +20,36 @@ const LED_DELAY_MS = blk: {
     }
 };
 
+fn gpioc_bit_oe_put(pin: c_uint, val: bool) callconv(.C) void {
+    asm volatile (
+        \\mcrr p0, #4, %[src1], %[src2], c4
+        :
+        : [src1] "r" (pin),
+          [src2] "r" (val),
+    );
+}
+
+fn gpioc_bit_out_put(pin: c_uint, val: bool) callconv(.C) void {
+    asm volatile (
+        \\mcrr p0, #4, %[src1], %[src2], c0
+        :
+        : [src1] "r" (pin),
+          [src2] "r" (val),
+    );
+}
+
+comptime {
+    // Workaround for this: https://github.com/ziglang/zig/issues/18537
+    if (@hasDecl(p, "PICO_USE_GPIO_COPROCESSOR")) {
+        @export(gpioc_bit_oe_put, .{
+            .name = "gpioc_bit_oe_put",
+        });
+        @export(gpioc_bit_out_put, .{
+            .name = "gpioc_bit_out_put",
+        });
+    }
+}
+
 /// Perform initialisation
 fn picoLedInit() c_int {
     if (@hasDecl(p, "PICO_DEFAULT_LED_PIN")) {
