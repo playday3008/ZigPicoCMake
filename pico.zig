@@ -132,6 +132,7 @@ const Wireless = enum {
 /// Raspberry Pi Pico boards
 const Board = struct {
     name: [:0]const u8,
+    cmake_name: ?[:0]const u8 = null,
     platform: Platform,
     wireless: Wireless,
 };
@@ -160,12 +161,28 @@ pub const Pico2W = Board{
     .platform = Pico2.platform,
     .wireless = Wireless.CYW43439,
 };
+/// Raspberry Pi Pico 2 (RISC-V)
+pub const Pico2Riscv = Board{
+    .name = "pico2-riscv",
+    .cmake_name = "pico2",
+    .platform = Platform.init(.RP2350, .RISCV),
+    .wireless = Wireless.None,
+};
+/// Raspberry Pi Pico 2 W (RISC-V)
+pub const Pico2RiscvW = Board{
+    .name = Pico2Riscv.name ++ "_w",
+    .cmake_name = Pico2Riscv.cmake_name.? ++ "_w",
+    .platform = Pico2Riscv.platform,
+    .wireless = Wireless.CYW43439,
+};
 
 pub const Boards = &[_]Board{
     Pico,
     PicoW,
     Pico2,
     Pico2W,
+    Pico2Riscv,
+    Pico2RiscvW,
 };
 
 /// Standard I/O configuration

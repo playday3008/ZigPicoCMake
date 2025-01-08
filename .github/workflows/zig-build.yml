@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        board: [pico, pico_w, pico2, pico2_w]
+        board: [pico, pico_w, pico2, pico2_w, pico2-riscv, pico2-riscv_w]
         optimize: [Debug, ReleaseSafe, ReleaseFast, ReleaseSmall]
         zig: [latest]
 

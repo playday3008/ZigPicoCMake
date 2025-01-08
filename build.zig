@@ -127,7 +127,7 @@ pub fn build(b: *std.Build) !void {
                 b.fmt("-DHOST_ARCH:STRING={s}", .{@tagName(builtin.cpu.arch)}),
                 b.fmt("-DPICO_ARCH:STRING={s}", .{board.platform.arch.str()}),
                 // Pico SDK settings
-                b.fmt("-DPICO_BOARD:STRING={s}", .{board.name}),
+                b.fmt("-DPICO_BOARD:STRING={s}", .{if (board.cmake_name) |name| name else board.name}),
                 b.fmt("-DPICO_PLATFORM:STRING={s}", .{board.platform.str()}),
                 // Pico C++ settings
                 b.fmt("-DPICO_CXX_ENABLE_EXCEPTIONS:BOOL={s}", .{"OFF"}),
