@@ -27,19 +27,19 @@ jobs:
         with:
           version: ${{ matrix.zig }}
 
+      - name: Cache Dependencies
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: ./build/${{ matrix.board }}/${{ matrix.optimize }}/_deps
+          key: ${{ matrix.board }}-${{ matrix.optimize }}-deps
+
       - name: Cache Toolchains
         id: cache-toolchains
         uses: actions/cache@v4
         with:
           path: ./build/${{ matrix.board }}/${{ matrix.optimize }}/toolchain
           key: ${{ matrix.board }}-toolchain
-
-      - name: Cache Dependencies
-        id: cache-deps
-        uses: actions/cache@v4
-        with:
-          path: ./build/${{ matrix.board }}/${{ matrix.optimize }}/_deps
-          key: ${{ matrix.board }}-deps
 
       - name: Build
         run: zig build -Dboard=${{ matrix.board }} -Doptimize=${{ matrix.optimize }} -Dbuild_dir=./build/${{ matrix.board }}/${{ matrix.optimize }}
