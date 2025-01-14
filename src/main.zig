@@ -2,13 +2,7 @@ const sdk = @import("sdk.zig");
 
 const std = @import("std");
 
-const LED_DELAY_MS = blk: {
-    if (@hasDecl(sdk, "LED_DELAY_MS")) {
-        break :blk sdk.LED_DELAY_MS;
-    } else {
-        break :blk 250;
-    }
-};
+const morse = @import("morse.zig");
 
 /// Perform initialisation
 fn picoLedInit() c_int {
@@ -39,9 +33,7 @@ export fn main() callconv(.C) c_int {
     const rc = picoLedInit();
     sdk.hardAssert(rc == sdk.PICO_OK);
     while (true) {
-        picoSetLed(true);
-        sdk.sleep_ms(LED_DELAY_MS);
-        picoSetLed(false);
-        sdk.sleep_ms(LED_DELAY_MS);
+        morse.putMorseString("Hello World");
+        sdk.sleep_ms(1000);
     }
 }
