@@ -4,6 +4,7 @@ const pico = @cImport({
 });
 
 pub usingnamespace @cImport({
+    @cInclude("pico/printf.h");
     @cInclude("pico/stdlib.h");
     // Pico W devices use a GPIO on the WIFI chip for the LED,
     // so when building for Pico W, CYW43_WL_GPIO_LED_PIN will be defined

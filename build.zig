@@ -14,6 +14,7 @@ const stdio: pico.Stdio = .{
 
 /// Libraries to link
 const link_libs_base = &[_]pico.Lib{
+    pico.api.runtime.pico.printf,
     pico.api.high_level.stdlib,
 };
 
